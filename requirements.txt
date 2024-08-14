@@ -5,4 +5,3 @@ seaborn
 numpy = 1.23.5
 streamlit 
 scikit-learn 
-python == 3.9
