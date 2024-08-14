@@ -2,6 +2,6 @@ prophet
 pandas 
 matplotlib 
 seaborn 
-numpy
+numpy <2.0
 streamlit 
 scikit-learn 
