@@ -1,7 +1,7 @@
 pandas 
-prophet = 1.1
+prophet
 matplotlib 
 seaborn 
-numpy = 1.23.5
+numpy 
 streamlit 
 scikit-learn 
