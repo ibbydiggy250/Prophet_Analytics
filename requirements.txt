@@ -1,7 +1,7 @@
 pandas == 2.2.2
 prophet == 1.1.5
 matplotlib ==3.9
-seaborn == 0.12
+seaborn == 0.13.2
 numpy == 2.0.1
 streamlit 
 scikit-learn == 1.5.1
