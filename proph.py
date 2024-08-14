@@ -7,7 +7,7 @@ import seaborn as sns
 import streamlit as st
 from sklearn.metrics import accuracy_score
 def mean_absolute_percentage_error(y_true,y_pred):
-    y_true,y_pred = np.array(y_true), np.array(y_pred)
+    y_true,y_pred = np.array(y_true), np.array(y_pred)forec
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 pd.set_option('display.max_columns',20)
 df = pd.read_excel('count_model.xlsx', index_col=[0], parse_dates=[0])
@@ -16,9 +16,9 @@ st.title('Predictions for number of items picked by the IDC using the Facebook P
 st.write('Ibrahim Quaizar')
 st.write('August 13th, 2024')
 st.header('Brief summary')
-st.write('''Pick Lines are the amount of items that the IDC(A storage facility) has to pick from the shelves each day. This may be to ship out to sales, or whatever other reason.
-            The Dataset being manipulated is one that shows the number of Pick Lines on a daily basis. The goal of this project is to try to predict how many picks the IDC might have to do in the
-            future so hat they are more readily able to allocate workers and items. Based on research, the Facebook Prophet model may be the best to do this because it manipulated data working with
+st.write('''Pick lines are the amount of items that the IDC(A storage facility) has to pick from the shelves each day. This may be to ship out to sales, or for whatever other reason.
+            The dataset being manipulated is one that shows the number of pick lines on a daily basis. The goal of this project is to try to predict how many picks the IDC might have to do in the
+            future so that they are more readily able to allocate workers and items. Based on research, the Facebook Prophet model may be the best to do this because it forecasts data working with
             time very well.''')
          
 #print(df.head())
@@ -67,10 +67,10 @@ plt.show()
 fig2 = mod.plot_components(y_pred)
 plt.show()
 st.header('Table visualization')
-st.write('''Table showing predicted and actual pick lines, along with a lower and upper bound. Last column
-         shows an analysis if the actual pick lines are within the upper and lower bounds or not. This helps
-         with figuring out how our model worked, or some workarounds we may need to take into consideration
-         when trusting these predictions.''')
+st.write('''Table showing predicted and actual pick lines from October 2023 to July 2024, along with a lower and upper bound. The Last column
+         shows an analysis if the actual pick lines are within the upper and lower bounds or not. This data was purely a testing dataset, helping to 
+         see how the model actually performed in relation with our actual data. This testing data helps with analyzing how our model functioned, or some 
+         workarounds we may need to take into consideration when trusting these predictions.''')
 st.dataframe(revTable)
 
 st.header('Model Visualization through graphs')
