@@ -39,15 +39,11 @@ y_pred = mod.predict(test_data_proph)
 
 
 print(y_pred.head())
-revTable = y_pred[[
-    'ds','yhat','yhat_lower','yhat_upper'
-]]
+revTable = y_pred[['ds','yhat','yhat_lower','yhat_upper']]
+revTable = pd.merge(test_data_proph,revTable, on = 'ds')
 
-revTable = revTable.set_index('ds')
-revTable = pd.merge(test_data_proph,revTable,on = revTable.index)
-
-revTable = revTable.rename(columns = {'y':'actual_pick_lines','yhat': 'predicted_pick_lines', 
-                                      'yhat_lower':'lower_bound', 'yhat_upper':'upper_bound'})
+revTable = revTable.rename(columns = {'ds':'Date', 'y':'actual_pick_lines', 'yhat':'predicted_pick_lines',
+                                      'yhat_lower':'lower_bound','yhat_upper':'upper_bound'})
 
 rangee = []
 for index, row in revTable.iterrows():
@@ -61,7 +57,8 @@ revTable['Range_Status'] = rangee
 print(revTable.head())
 
 fig, ax = plt.subplots(figsize = (10,5))
-fig1 = mod.plot(y_pred, ax=ax)
+fig1 = mod.plot(y_pred,ax=ax, xlabel = 'Date',ylabel = 'Pick Lines')
+plt.title(label = 'Training & Testing Data')
 plt.show()
 fig2 = mod.plot_components(y_pred)
 plt.show()
@@ -87,6 +84,9 @@ f,ax = plt.subplots(figsize = (15,5))
 ax.scatter(test_data.index,test_data['pick_lines'],color = 'r')
 fig3 = mod.plot(y_pred,ax=ax)
 plt.xlim(pd.to_datetime('2023-10-21'),pd.to_datetime('2024-07-28'))
+plt.title('Testing Data Predictions')
+plt.xlabel('Dates')
+plt.ylabel('Pick Lines')
 plt.show()
 
 st.write('''Zoomed in graph to show just the predicted quantities. Date Range: 10/21/2023 - 07/28/2024.
@@ -97,7 +97,7 @@ st.pyplot(fig3)
 st.header('Model error justification & explanation')
 range_count = revTable['Range_Status'].value_counts()
 plt.figure(figsize=(10,5))
-sns.barplot(x = range_count.index, y = range_count.values, alpha = 0.8, color = 'red')
+sns.barplot(x = range_count.index, y = range_count.values, alpha = 0.8, color = 'red',)
 plt.title('Range Status Count')
 plt.xlabel('Range Status')
 plt.ylabel('Count in dataset')
@@ -115,6 +115,9 @@ print(future_fcst.tail())
 
 fig, ax = plt.subplots(figsize = (10,5))
 fig = mod.plot(future_fcst, ax=ax)
+plt.title('Future Predictions')
+plt.xlabel('Date')
+plt.ylabel('Pick Lines')
 plt.show()
 st.write('''Predictions for the dataset until the end of 2025 shown below. Here we can see that the prophet model 
          fitted to an upward curve shown from the years 2021-2023. This made it so that the amount of items 
@@ -135,4 +138,7 @@ st.write('''Below is a zoomed in graph of just the future data, ranging from Aug
          data, and there was no existing dataset to compare this to. This graph allows us to grasp a further
          understanding of the trend shown by this model in the next year or so.''')
 plt.xlim(pd.to_datetime('2024-08-15'),pd.to_datetime('2025-12-01'))
+plt.title('Future Data Points')
+plt.xlabel('Dates')
+plt.ylabel('Pick Lines')
 st.pyplot(fig3)
