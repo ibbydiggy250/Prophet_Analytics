@@ -7,7 +7,7 @@ import seaborn as sns
 import streamlit as st
 from sklearn.metrics import accuracy_score
 def mean_absolute_percentage_error(y_true,y_pred):
-    y_true,y_pred = np.array(y_true), np.array(y_pred)forec
+    y_true,y_pred = np.array(y_true), np.array(y_pred)
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 pd.set_option('display.max_columns',20)
 df = pd.read_excel('count_model.xlsx', index_col=[0], parse_dates=[0])
