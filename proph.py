@@ -93,7 +93,7 @@ plt.xlabel('Dates')
 plt.ylabel('Pick Lines')
 plt.show()
 
-st.write('''Below is thez oomed in graph to show just the predicted quantities. Date Range: 10/21/2023 - 07/28/2024.
+st.write('''Below is the zoomed in graph to show just the predicted quantities. Date Range: 10/21/2023 - 07/28/2024.
          Here, we can see a more concrete trendline of the model fitting, and see how many of the predictions
          were accurate. The red dots represent the actual quantities while the blue line represents the
          predicted quantities.''')
