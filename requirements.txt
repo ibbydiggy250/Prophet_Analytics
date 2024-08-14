@@ -1,5 +1,4 @@
 pandas 
-prophet
 matplotlib 
 seaborn 
 numpy
