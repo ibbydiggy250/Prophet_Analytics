@@ -67,19 +67,19 @@ plt.show()
 fig2 = mod.plot_components(y_pred)
 plt.show()
 st.header('Table visualization')
-st.write('''Table showing predicted and actual pick lines from October 2023 to July 2024, along with a lower and upper bound. The Last column
+st.write('''Displayed below is the table showing predicted and actual pick lines from October 2023 to July 2024, along with a lower and upper bound. The Last column
          shows an analysis if the actual pick lines are within the upper and lower bounds or not. This data was purely a testing dataset, helping to 
          see how the model actually performed in relation with our actual data. This testing data helps with analyzing how our model functioned, or some 
          workarounds we may need to take into consideration when trusting these predictions.''')
 st.dataframe(revTable)
 
 st.header('Model Visualization through graphs')
-st.write('''Graph showing testing and training data done with the model to achieve prediction results. 
-         Upper and Lower bound shades shown. As indicated, the model does predict the training data
+st.write('''Graph showing testing and training data done with the model to achieve prediction results shown below. 
+         upper and lower bound ranges shown. As indicated, the model does predict the training data
          well, with a few outliers stemming from unforseen events.''')
 st.pyplot(fig1)
 
-st.write('''Components of the above graph, showing the overall trend, weekly tend, and trends near the holidays.
+st.write('''Components of the above graph, showing the overall trend, weekly tend, and trends near the holidays shown below.
          From the overall trend, we can gather that the model is fitting to an upwards trend, which becomes
          important when predicting future years. As for the days of the week, We can see that no production
          happens on weekends, and that production tends to be highest on Thursdays.''')
@@ -93,7 +93,7 @@ plt.xlabel('Dates')
 plt.ylabel('Pick Lines')
 plt.show()
 
-st.write('''Zoomed in graph to show just the predicted quantities. Date Range: 10/21/2023 - 07/28/2024.
+st.write('''Below is thez oomed in graph to show just the predicted quantities. Date Range: 10/21/2023 - 07/28/2024.
          Here, we can see a more concrete trendline of the model fitting, and see how many of the predictions
          were accurate. The red dots represent the actual quantities while the blue line represents the
          predicted quantities.''')
