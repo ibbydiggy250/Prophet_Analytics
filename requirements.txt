@@ -1,9 +1,7 @@
-pip install -r requirements.txt
-pip install prophet
-pip install pandas
-pip install matplotlib
-pip install seaborn
-pip install seaborn
-pip install numpy
-pip install streamlit
-pip install scikit-learn
+pandas == 2.2.2
+prophet == 1.1.5
+matplotlib ==3.9
+seaborn == 0.12
+numpy == 2.0.1
+streamlit 
+scikit-learn == 0.20.0
