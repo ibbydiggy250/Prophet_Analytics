@@ -54,7 +54,6 @@ for index, row in revTable.iterrows():
     elif row['actual_pick_lines'] < row['lower_bound']:
         rangee.append('under_range')
 revTable['Range_Status'] = rangee
-print(revTable.head())
 
 fig, ax = plt.subplots(figsize = (10,5))
 fig1 = mod.plot(y_pred,ax=ax, xlabel = 'Date',ylabel = 'Pick Lines')
