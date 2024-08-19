@@ -7,15 +7,21 @@ import seaborn as sns
 import streamlit as st
 from sklearn import metrics
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from sklearn.metrics import accuracy_score
 def mean_absolute_percentage_error(y_true,y_pred):
     y_true,y_pred = np.array(y_true), np.array(y_pred)
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 pd.set_option('display.max_columns',20)
 df = pd.read_excel('count_model.xlsx', index_col=[0], parse_dates=[0])
 st.set_page_config('Prophet Model')
-st.title('Predictions for number of items vended using the Facebook Prophet Model')
+st.title('Predictions for number of items picked by the IDC using the Facebook Prophet Model')
 st.write('Ibrahim Quaizar')
 st.write('August 13th, 2024')
+st.header('Brief summary')
+st.write('''Pick lines are the amount of items that the IDC(A storage facility) has to pick from the shelves each day. This may be to ship out to sales, or for whatever other reason.
+            The dataset being manipulated is one that shows the number of pick lines on a daily basis. The goal of this project is to try to predict how many picks the IDC might have to do in the
+            future so that they are more readily able to allocate workers and items. Based on research, the Facebook Prophet model may be the best to do this because it forecasts data working with
+            time very well.''')
          
 #print(df.head())
 #Graphing just to see
@@ -158,6 +164,10 @@ st.write('''Below is a zoomed in graph of just the future data, ranging from Aug
          data, and there was no existing dataset to compare this to. This graph allows us to grasp a further
          understanding of the trend shown by this model in the next year or so.''')
 plt.xlim(pd.to_datetime('2024-08-15'),pd.to_datetime('2025-12-01'))
+plt.title('Future Data Points')
+plt.xlabel('Dates')
+plt.ylabel('Pick Lines')
+st.pyplot(fig3)
 plt.title('Future Data Points')
 plt.xlabel('Dates')
 plt.ylabel('Pick Lines')
