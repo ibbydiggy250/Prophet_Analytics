@@ -151,6 +151,10 @@ st.write('''Predictions for the dataset until the end of 2025 shown below. Here 
          predicted would increase. On a company level, this means that in the future, more items may be needed
          to be picked by the IDC. This would possibily require us to allocate more space for items, and improve 
          funding and costs, while also increasing staffing.''')
+st.write('''Looking at the increasing model, we can actually predict how many more workers we need. We can see that on average,
+        the amount of pick lines increased by 25% than the current lines. Because of this, we would need 25-30% more workers in 
+        order to ensure proper workflow. Using the base line of 40 picks per hour for one person, and 40 hours a week, 30% more workers should compensate
+        for the extra items being picked'''
 st.pyplot(fig)
 st.write('''From analyzing the components of the future predictions, we can say with more confidence
          that our future predictions work. Noticing the trend line and weekly trend, it maps just about the
