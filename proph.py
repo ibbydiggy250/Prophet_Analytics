@@ -84,7 +84,7 @@ plt.title(label = 'Training & Testing Data')
 fig2 = mod.plot_components(y_pred)
 #plt.show()
 st.header('Table visualization')
-st.write('''Table showing predicted and actual pick lines, along with a lower and upper bound. Last column
+st.write('''Table showing predicted and actual pick lines from the testing dataset, along with a lower and upper bound. Last column
          shows an analysis if the actual pick lines are within the upper and lower bounds or not. This helps
          with figuring out how our model worked, or some workarounds we may need to take into consideration
          when trusting these predictions.''')
@@ -118,14 +118,15 @@ st.pyplot(fig3)
 st.header('Model error justification & explanation')
 range_count = revTable['Range_Status'].value_counts()
 plt.figure(figsize=(10,5))
-sns.barplot(x = range_count.index, y = range_count.values, alpha = 0.8, color = 'red',)
+sns.barplot(x = range_count.index, y = range_count.values, alpha = 0.8, palette = ['red','blue','green'])
 plt.title('Range Status Count')
 plt.xlabel('Range Status')
 plt.ylabel('Count in dataset')
 st.write('''Bar Graph showing how many of the actual values are either within, above, or below the
          predicted range. As we can see, majority of the values predicted by the model were within range.
-         The under range values may be ignored because there is no issue with selling vendors 
-         more items. The over range values are where the main problem stems from, but can be justified by the 
+         The under range values may be ignored because there is no issue with picking more items than we need to. 
+         The over range values are where the main problem stems from, as it is an issue if
+         we pick less items than we have to. However, this can be justified by the 
          fact that the extra supplies from the under range values may compensate for them in the future.''')
 st.pyplot(plt)
 st.write('''Within Range: 160 instances(~58%)''')
@@ -148,7 +149,7 @@ plt.ylabel('Pick Lines')
 st.write('''Predictions for the dataset until the end of 2025 shown below. Here we can see that the prophet model 
          fitted to an upward curve shown from the years 2021-2023. This made it so that the amount of items 
          predicted would increase. On a company level, this means that in the future, more items may be needed
-         to be vended. This would possibily require us to allocate more space for items, and improve 
+         to be picked by the IDC. This would possibily require us to allocate more space for items, and improve 
          funding and costs, while also increasing staffing.''')
 st.pyplot(fig)
 st.write('''From analyzing the components of the future predictions, we can say with more confidence
