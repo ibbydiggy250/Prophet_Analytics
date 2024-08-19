@@ -126,7 +126,7 @@ st.write('''Within Range: 160 instances(~58%)
             Under Range: 80 instances(~28%)
             Over Range: 41 instances(~14%)
             If we take within range and under range as both acceptable metrics, we have an overall accuracy rate of roughly 86%, but can still be discounted
-            if we include the fact that the over range will compensate for the under range, so it is acceptable as well.'''
+            if we include the fact that the over range will compensate for the under range, so it is acceptable as well.''')
 
 st.header('Future Predictions')
 future = mod.make_future_dataframe(periods = 800, freq = 'd', include_history= False)
