@@ -169,7 +169,4 @@ plt.title('Future Data Points')
 plt.xlabel('Dates')
 plt.ylabel('Pick Lines')
 st.pyplot(fig3)
-plt.title('Future Data Points')
-plt.xlabel('Dates')
-plt.ylabel('Pick Lines')
-st.pyplot(fig3)
+
