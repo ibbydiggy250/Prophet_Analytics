@@ -72,7 +72,7 @@ revTable['Range_Status'] = rangee
 #print(revTable.head())
 
 fig, ax = plt.subplots(figsize = (10,5))
-fig1 = mod.plot(y_pred,ax=ax, xlabel = 'Date',ylabel = 'Pick Lines')
+fig1 = mod.plot(y_pred,ax=ax, xlabel = 'Date',ylabel = 'Pick Lines', linestyle = '.')
 plt.title(label = 'Training & Testing Data')
 #plt.show()
 fig2 = mod.plot_components(y_pred)
